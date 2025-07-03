@@ -52,6 +52,7 @@ with col2:
     lot_area_renov = st.slider("Lot Area Renovated", 0, 15000, 0)
     schools_nearby = st.slider("Number of Schools Nearby", 0, 10, 3)
     airport_distance = st.slider("Distance from Airport (km)", 1, 100, 10)
+    inv_distance = 1 / (airport_distance + 1)
 
 # Encode inputs
 input_dict = {
@@ -73,8 +74,8 @@ input_dict = {
     "longitude": lon,
     "living_area_renov": living_area_renov,
     "lot_area_renov": lot_area_renov,
-    "number_of_schools_nearby": schools_nearby,
-    "distance_from_the_airport": airport_distance,
+    "inv_distance": inv_distance,
+    "number_of_schools_nearby": schools_nearby
 }
 
 input_data = pd.DataFrame([input_dict])[columns]
